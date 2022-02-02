@@ -6,8 +6,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Author 1
-Author 2
+Tim Riedel
+Nikafareed Papari
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -17,15 +17,225 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+This code is to help students learn and understand how to effectively write code and use its many functions and languages. 
+Additionally, the code creates a web app that will help individuals ...
  
 Known Issues:
-blah, blah, blah, blah
+I had difficulty with making sure that the numbers were calculated correctly and showed up on the results page.
+However, after tinkering with the functions and double-checking the details, they appeared correctly on the final page. 
 -->
 
    <head> 
-      
-	   PUT YOUR OLD CODE IN HERE
+      <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script>
+        var allergy_count = 0;
+        var cold_count = 0;
+
+	// The variables above start from zero and count up to deduce whether the individual has more symptoms similar to that of allergies or a cold. 
+
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+
+	// Removed unnecessary alert for allergy count
+		
+        }
+
+	// These functions (cold or allergy count) give the code the ability to add a point when the user presses on the coordinating button. 
+	
+        function coldAdd(){
+            cold_count = cold_count + 1;
+        }
+	
+	/* Add Function and variables for results page
+	the code will use the equation to calculate the input answers 
+	it will calulate by dividing the points assigned to either allergy or cold by the total number of points available */
+	
+	function resultsAdd(){
+		var resultText = document.getElementById("results");
+		var allergyPercent = (allergy_count/(allergy_count + cold_count)) * 100;
+		var coldPercent = (cold_count/(allergy_count + cold_count)) * 100;
+		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent;
+	}
+	
+  </script>
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-indigo">        <!-- Start of page 1 -->
+	<h1>Cold or Allergies?</h1>			<!-- Page 1 header -->
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p> <!-- Introduction -->
+	
+	<a href="#one" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Get Started! </a>
+	
+	<!-- Changed the button style and aded a color for hovering to make it look nicer and be more interactive -->
+	
+	<p>***The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>***THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>     <!-- Disclaimer -->
+
+</div>
+	
+<div class="page" id="one">					<!-- Start of page 2 -->
+	<div id="header" class="w3-container w3-blue">		
+		<h1>Question 1</h1>				<!-- Page 2 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+       		<p>Are your eyes watery or itchy?</p>  		<!-- Question 1 -->
+	
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<!-- Changed the button style and aded a color for hovering to make it look nicer and be more interactive -->
+	
+		<a href="#two" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+		
+		<!-- Added extra button to move between pages -->
+	
+    	</div>
+</div>
+
+<div class="page" id="two">			<!-- Start of page 3 -->
+	<div class="w3-container w3-blue">
+		<h1>Question 2</h1>		<!-- Page 3 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+		<p>Do you have a fever?</p>		<!-- Question 2 -->
+	
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<!-- Changed the button style and added a color for hovering to make it look nicer and be more interactive -->
+	
+		<a href="#three" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+		
+	</div>
+</div>	
+
+<div class="page" id="three">			<!-- Start of page 4 -->
+	<div class="w3-container w3-blue">
+		<h1>Question 3</h1>		<!-- Page 4 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+		<p>Do you have a sore throat?</p>	<!-- Question 3 -->
+		
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<a href="#four" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+	
+	</div>	
+</div>	
+
+<div class="page" id="four">				<!-- Start of page 5 -->
+	<div class="w3-container w3-blue">
+		<h1>Question 4</h1>			<!-- Page 5 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+		<p>Are your symptoms seasonal or chronic?</p>	<!-- Question 4 -->
+		
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<a href="#five" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+	
+	</div>
+</div>	
+
+<div class="page" id="five">				<!-- Start of page 6 -->
+	<div class="w3-container w3-blue">
+		<h1>Question 5</h1>			<!-- Page 6 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+		<p>Do you have an itchy nose?</p>	<!-- Question 5 -->
+	
+		<!-- Added additional quedtion that would give a point towards allergy -->
+		
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<a href="#six" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+	
+	</div>	
+</div>	
+
+<div class="page" id="six">				<!-- Start of page 7 -->
+	<div class="w3-container w3-blue">
+		<h1>Question 6</h1>			<!-- Page 7 header -->
+	</div>
+	
+<div id="content" class="w3-container">
+		<p>Do you have a bodyache?</p>		<!-- Question 6 -->
+	
+		<!-- Added additional question that would give a point towards cold -->
+		
+		<a = onclick="coldAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Yes </a>		<!-- Yes button -->
+	
+		<a = onclick="allergyAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> No </a>		<!-- No button -->
+	
+		<a href="#seven" class="w3-btn w3-indigo w3-round-xlarge w3-padding-large"> Click here to go to next page --> </a>	<!-- Move on button -->
+	
+	</div>
+</div>
+	
+<div class="page" id="seven">					<!-- Start of page 8 -->
+	<div class="w3-container w3-indigo">
+		<h1>Cold or Allergy??</h1>			<!-- Page 8 header -->
+	</div>
+		<!-- Added a results page and changed the header color -->
+		
+<div id="content" class"w3-container">
+
+		<p id="results">  </p>
+		<a onclick="resultsAdd();" class="w3-btn w3-blue w3-hover-indigo w3-round-xlarge w3-padding-large"> Click here to see your results! </a>
+	</div>
+</div>
+	
+	<!-- Added text in the footer and updated its code -->
+	
+<footer class="w3-bottom w3-container w3-blue">								<!-- Footer along pages -->
+	<p>Now you'll know if your symptoms are more like cold or flu! Feel better soon!</p>
+</footer>
 	   
    </body>
 </html>
