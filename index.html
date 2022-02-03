@@ -18,7 +18,7 @@ triedel@utexas.edu
  
 Brief Description of Goal of Code:
 This code is to help students learn and understand how to effectively write code and use its many functions and languages. 
-Additionally, the code creates a web app that will help individuals ...
+Additionally, the code creates a web app that will help individuals identify which Harry Potter house they most likely belong in.
  
 Known Issues:
 I had difficulty with making sure that the numbers were calculated correctly and showed up on the results page.
@@ -35,33 +35,43 @@ However, after tinkering with the functions and double-checking the details, the
 
 
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+        var gryffindor_count = 0;
+        var slytherin_count = 0;
+	var ravenclaw_count = 0;
+	var hufflepuff_count = 0;
 
-	// The variables above start from zero and count up to deduce whether the individual has more symptoms similar to that of allergies or a cold. 
+	// The variables above start from zero and count up to deduce whether the individual's answers are more like which of the four categories.
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-
-	// Removed unnecessary alert for allergy count
+        function gryffindorAdd(){
+            gryffindor_count = gryffindor_count + 1;
 		
         }
 
-	// These functions (cold or allergy count) give the code the ability to add a point when the user presses on the coordinating button. 
+	// These count functions give the code the ability to add a point when the user presses on the coordinating button and keep track of the points. 
 	
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function slytherinAdd(){
+            slytherin_count = slytherin_count + 1;
+        }
+	
+	function ravenclawAdd(){
+            ravenclaw_count = ravenclaw_count + 1;
+        }
+	
+	function hufflepuffAdd(){
+            hufflepuff_count = hufflepuff_count + 1;
         }
 	
 	/* Add Function and variables for results page
 	the code will use the equation to calculate the input answers 
-	it will calulate by dividing the points assigned to either allergy or cold by the total number of points available */
+	it will calulate by dividing the points assigned to each of the four Harry Potter houses by the total number of points available */
 	
 	function resultsAdd(){
 		var resultText = document.getElementById("results");
-		var allergyPercent = (allergy_count/(allergy_count + cold_count)) * 100;
-		var coldPercent = (cold_count/(allergy_count + cold_count)) * 100;
-		resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent;
+		var gryffindorPercent = (gryffindor_count/(gryffindor_count + slytherin_count + ravenclaw_count + hufflepuff_count)) * 100;
+		var slytherinPercent = (slytherin_count/(gryffindor_count + slytherin_count + ravenclaw_count + hufflepuff_count)) * 100;
+		var ravenclawPercent = (ravenclaw_count/(gryffindor_count + slytherin_count + ravenclaw_count + hufflepuff_count)) * 100;
+		var hufflepuffPercent = (hufflepuff_count/(gryffindor_count + slytherin_count + ravenclaw_count + hufflepuff_count)) * 100;
+		resultText.innerHTML = "Probability you would be placed in Gryffindor =" + gryffindorPercent + "<br> Probability you would be placed in Slytherin =" + slytherinPercent + "<br> Probability you would be placed in Ravenclaw =" + ravenclawPercent + "<br> Probability you would be placed in Hufflepuff =" + hufflepuffPercent;
 	}
 	
   </script>
@@ -95,8 +105,8 @@ However, after tinkering with the functions and double-checking the details, the
 </style>
 
 <body>
-<div id="header" class="w3-container w3-green">        <!-- Start of page 1 -->
-	<h1>Cold or Allergies?</h1>			<!-- Page 1 header -->
+<div id="header" class="w3-container w3-green">        					<!-- Start of page 1 -->
+	<h1>Which Harry Potter House Would You Be Sorted Into?</h1>			<!-- Page 1 header -->
 </div>
 	
 <div id="content" class="w3-container">
@@ -233,14 +243,14 @@ However, after tinkering with the functions and double-checking the details, the
 <div id="content" class"w3-container">
 
 		<p id="results">  </p>
-		<a onclick="resultsAdd();" class="w3-btn w3-green w3-hover-yellow w3-round-xlarge w3-padding-large"> Click here to see your results! </a>
+		<a onclick="resultsAdd();" class="w3-btn w3-green w3-hover-yellow w3-round-xlarge w3-padding-large"> Click here to see what the Sorting Hat decides! </a>
 	</div>
 </div>
 	
 	<!-- Added text in the footer and updated its code -->
 	
 <footer class="w3-bottom w3-container w3-green">								<!-- Footer along pages -->
-	<p>Now you'll know if your symptoms are more like cold or flu! Feel better soon!</p>
+	<p>Now you'll know which house you'd be sorted into at Hogwarts!</p>
 </footer>
 	   
    </body>
